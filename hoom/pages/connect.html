@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hoom</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <section class="py-4 py-xl-5">
+        <div class="container" style="max-width: 500px;">
+            <div class="p-4 p-lg-5">
+                <h1 class="fs-3 text-start" style="font-weight: 600;letter-spacing: -0.5px;margin-bottom: 16px;color: rgb(0,0,0);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-smart-home" style="margin-bottom: 5px;margin-right: 5px;">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M19 8.71l-5.333 -4.148a2.666 2.666 0 0 0 -3.274 0l-5.334 4.148a2.665 2.665 0 0 0 -1.029 2.105v7.2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-7.2c0 -.823 -.38 -1.6 -1.03 -2.105"></path>
+                        <path d="M16 15c-2.21 1.333-5.792 1.333-8 0"></path>
+                    </svg>Hoom</h1>
+                <p style="font-size: 16px;color: rgba(33,37,41,0.5);margin-bottom: 50px;">Welcome to your Hoom Bridge. Scan the code below to add Hoom as a bridge to your HomeKit configuration.</p>
+                <div style="background: #fbfbfb;border-radius: 15px;padding: 20px;border: 1px solid rgb(237,237,237);margin-bottom: -1px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
+                    <div class="row">
+                        <div class="col-5 col-sm-4 col-lg-4 col-xl-5">
+                            <div id="qrcode"></div>
+                        </div>
+                        <div class="col-7 col-sm-8 col-xl-7">
+                            <p style="font-size: 12px;color: rgb(33,37,41);margin-bottom: 15px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-device-mobile" style="font-size: 16px;margin-right: 4px;">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <rect x="7" y="4" width="10" height="16" rx="1"></rect>
+                                    <line x1="11" y1="5" x2="13" y2="5"></line>
+                                    <line x1="12" y1="17" x2="12" y2="17.01"></line>
+                                </svg>Scan this QR-Code in the Apple Home app, or input the code below</p>
+                            <div style="border: 2px solid rgb(0,0,0);padding: 8px;">
+                                <p class="font-monospace text-center" style="margin-bottom: 0px;letter-spacing: 5px;font-size: 14px;">{{ code }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: #000000;border-radius: 15px;padding: 10px 20px;border-top-left-radius: 0px;border-top-right-radius: 0px;border: 1px solid rgb(0,0,0);margin-bottom: 50px;">
+                    <p id="status-connected" class="text-center" style="display: none;font-size: 14px;color: rgb(255,255,255);margin-bottom: 0px;font-weight: 500;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin-right: 8px;color: rgb(83,203,80);font-size: 20px;margin-bottom: 2px;">
+                            <path d="M5.63604 18.3639C2.12132 14.8492 2.12132 9.15071 5.63604 5.63599M18.364 5.63599C21.8787 9.15071 21.8787 14.8492 18.364 18.3639M8.46447 15.5355C6.51184 13.5829 6.51184 10.417 8.46447 8.46441M15.5355 8.46441C17.4882 10.417 17.4882 13.5829 15.5355 15.5355M13 11.9999C13 12.5522 12.5523 12.9999 12 12.9999C11.4477 12.9999 11 12.5522 11 11.9999C11 11.4477 11.4477 10.9999 12 10.9999C12.5523 10.9999 13 11.4477 13 11.9999Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Connected
+                    </p>
+                    <p id="status-waiting" class="text-center" style="display: block;font-size: 14px;color: rgb(255,255,255);margin-bottom: 0px;font-weight: 500;">
+                        <span class="spinner-border spinner-border-sm" role="status" style="margin-right: 8px;margin-bottom: -1px;"></span>
+                        Waiting for connection...
+                    </p>
+                    <p id="status-error" class="text-center" style="display: none;font-size: 14px;color: rgb(255,255,255);margin-bottom: 0px;font-weight: 500;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin-right: 8px;color: rgb(226, 89, 82);font-size: 20px;margin-bottom: 2px;">
+                            <path d="M5.63604 18.3639C2.12132 14.8492 2.12132 9.15071 5.63604 5.63599M18.364 5.63599C21.8787 9.15071 21.8787 14.8492 18.364 18.3639M8.46447 15.5355C6.51184 13.5829 6.51184 10.417 8.46447 8.46441M15.5355 8.46441C17.4882 10.417 17.4882 13.5829 15.5355 15.5355M13 11.9999C13 12.5522 12.5523 12.9999 12 12.9999C11.4477 12.9999 11 12.5522 11 11.9999C11 11.4477 11.4477 10.9999 12 10.9999C12.5523 10.9999 13 11.4477 13 11.9999Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Error connecting
+                    </p>
+                </div><script type="text/javascript" src="/assets/js/qrcode.min.js"></script>
+<script type="text/javascript">
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width: 110,
+        height: 110
+    });
+
+    function makeCode () {		
+        var code = "{{ qrcode }}"
+        qrcode.makeCode(code);
+    }
+
+    makeCode();
+</script>
+
+<script>
+    connected = document.getElementById("status-connected")
+    waiting = document.getElementById("status-waiting")
+    error = document.getElementById("status-error")
+
+    async function timedReload() {
+        const response = await fetch("/status");
+        const data = await response.json();
+        if (data.status == "connected") {
+            console.log("[STATUS] Connected")
+            connected.style.display = "block"
+            waiting.style.display = "none"
+            error.style.display = "none"
+        } else if (data.status == "disconnected") {
+            console.log("[STATUS] Waiting for connection...")
+            connected.style.display = "none"
+            waiting.style.display = "block"
+            error.style.display = "none"
+        } else {
+            console.log("[STATUS] Error connecting")
+            connected.style.display = "none"
+            waiting.style.display = "none"
+            error.style.display = "block"
+        }
+    }
+
+    // automatic refresh every 5 seconds (in milliseconds)
+    // intervalID is used with clearInterval to stop the given interval
+    const intervalID = setInterval(timedReload, 5000); 
+</script>
+                <p style="font-size: 10px;color: rgba(33,37,41,0.5);margin-bottom: 50px;text-align: center;">Version {{ version }}&nbsp; ·&nbsp; Copyright © 2023 Foerstal (foerstal.com)</p>
+            </div>
+        </div>
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/qrcode.min.js"></script>
+</body>
+
+</html>

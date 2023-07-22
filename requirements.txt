@@ -1,0 +1,7 @@
+HAP-python
+fastapi
+uvicorn
+jinja2
+pyqrcode
+base36
+colorama
