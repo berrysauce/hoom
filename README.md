@@ -15,6 +15,8 @@ You can easily install Hoom using pip:
 pip install hoom
 ```
 
+> **Note:** Hoom requires Python 3.8 or higher
+
 ### How to use
 Here's a demo script which shows how easy Hoom is to use:
 
