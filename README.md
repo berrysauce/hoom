@@ -14,7 +14,7 @@
 
 <br>
 
-### ✨ Features
+### Features
 - [x] HomeKit Bridge
 - [x] Minimalist Web UI
 - [x] Create custom HomeKit Accessories with function decorators
@@ -23,7 +23,7 @@
 
 <br>
 
-### 📦 Installation
+### Installation
 You can easily install Hoom using pip:
 
 ```bash
@@ -59,7 +59,7 @@ As you can see, Hoom is very similar to frameworks like FastAPI. No need for com
 
 <br>
 
-### 📣 Credits
+### Credits
 A special thanks goes out to these Python packages/frameworks and their authors:
 
 - [HAP-python](https://github.com/ikalchev/HAP-python) - Hoom wouldn't be possible without this HomeKit Accessory Protocol implementation by [Ivan Kalchev](https://github.com/ikalchev)
