@@ -1,5 +1,10 @@
-<h1 align="center">🏡 Hoom</h1>
-<p align="center">Build your own HomeKit Bridge & Accessories with Hoom</p>
+<img src="https://bcdn.berrysauce.me/shared/hoom-banner-modified.png">
+<img src="https://bcdn.berrysauce.me/shared/hoom-ad-modified.png">
+
+<br>
+
+# 🏡 Hoom
+Build your own HomeKit Bridge & Accessories with Hoom
 
 ### ✨ Features
 - [x] HomeKit Bridge
