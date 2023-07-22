@@ -131,3 +131,7 @@ dmypy.json
 
 # IDEA
 .idea
+
+# Local testing
+test.py
+hoom_bridge.state
