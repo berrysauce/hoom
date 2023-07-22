@@ -133,10 +133,11 @@ class Hoom():
         global xhm_uri
         global pin_code  
         
+        # do this here to avoid double initialization
         bridge = Bridge(self.driver, self.name)
         bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
         self.driver.add_accessory(accessory=bridge)
-        
+        # this as well...
         xhm_uri = Accessory.xhm_uri(self.driver.accessory)
         pin_code = str(self.driver.state.pincode, "utf-8")
         
