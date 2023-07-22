@@ -52,6 +52,10 @@ with open("./pyproject.toml", "r") as f:
         if "version" in line:
             version = line.split("=")[1].strip().replace('"', '')
 
+# global variables
+xhm_uri = None
+pin_code = None
+
             
 # ---------------------------------
 # MAIN CLASSES
@@ -70,12 +74,8 @@ class Hoom():
         self.interval = interval # refresh interval for accessories that support it (in seconds)
         
         self.driver = AccessoryDriver(port=51826, persist_file="hoom_bridge.state")
-        self.bridge = Bridge(self.driver, self.name)
-        self.bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
-        self.driver.add_accessory(accessory=self.bridge)
         
-        
-    def run(self):
+    def run(self):       
         print(
             colorama.Fore.BLUE + f"""
             HH   HH                           
@@ -96,22 +96,29 @@ class Hoom():
         
         logging.info("Starting Hoom Bridge...")
         signal.signal(signal.SIGTERM, self.driver.signal_handler)
+        
         def run_server():
             app.include_router(router)
             uvicorn.run(app, host=self.host, port=self.port)
-        bridge_thread = threading.Thread(target=self.driver.start, args=())
-        server_thread = threading.Thread(target=run_server, args=())
+    
+        if self.server:
+            bridge_thread = threading.Thread(target=self.driver.start, args=())
+            server_thread = threading.Thread(target=run_server, args=())
         
         try:
-            # start threads
-            bridge_thread.start()
-            server_thread.start()
+            if self.server:
+                # start threads
+                bridge_thread.start()
+                server_thread.start()
             
-            print("...... " + colorama.Fore.GREEN + "Hoom Bridge is running. Stop with Ctrl+C." + colorama.Style.RESET_ALL + "\n       Configure at http://localhost:8553")
+                print("...... " + colorama.Fore.GREEN + "Hoom Bridge is running. Stop with Ctrl+C." + colorama.Style.RESET_ALL + "\n       Configure at http://localhost:8553")
             
-            # join threads
-            bridge_thread.join()
-            server_thread.join()
+                # join threads
+                bridge_thread.join()
+                server_thread.join()
+            else:
+                self.driver.start()
+                print("...... " + colorama.Fore.GREEN + "Hoom Bridge is running. Stop with Ctrl+C." + colorama.Style.RESET_ALL + "\n       Configure at http://localhost:8553\n")
         except KeyboardInterrupt:
             print("\n...... " + colorama.Fore.RED + "Stopping Hoom Bridge..." + colorama.Style.RESET_ALL)
         
@@ -123,10 +130,21 @@ class Hoom():
     
         
     def accessory(self, accessory_name: str, accessory_type: classmethod):
+        global xhm_uri
+        global pin_code  
+        
+        bridge = Bridge(self.driver, self.name)
+        bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
+        self.driver.add_accessory(accessory=bridge)
+        
+        xhm_uri = Accessory.xhm_uri(self.driver.accessory)
+        pin_code = str(self.driver.state.pincode, "utf-8")
+        
         def decorator(func):
             accessory_instance = accessory_type(self.driver, accessory_name)
             accessory_instance.callback_func = func
-            self.bridge.add_accessory(accessory_instance)     
+            bridge.add_accessory(accessory_instance)     
+        
             logging.info(colorama.Fore.BLUE + f"Initialized accessory '{accessory_name}'" + colorama.Style.RESET_ALL)   
             return func
 
@@ -138,16 +156,11 @@ class Hoom():
     # ---------------------------------
 
 
-    #@app.get("/")
     @router.get("/")
     async def get_root(self, request: Request):
-        xhm_uri = Accessory.xhm_uri(self.driver.accessory)
-        return templates.TemplateResponse("connect.html", {"request": request, "code": str(self.driver.state.pincode, "utf-8"), "qrcode": xhm_uri, "version": version})
-
-    #@app.get("/status")
-    @router.get("/status")
-    async def get_status(self):
-        if len(self.driver.state.paired_clients) == 0:
-            return {"status": "disconnected"}
-        else:
-            return {"status": "connected"}
+        return templates.TemplateResponse("connect.html", {
+            "request": request,
+            "code": pin_code,
+            "qrcode": xhm_uri,
+            "version": version
+        })
