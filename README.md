@@ -1,6 +1,13 @@
 <img src="https://bcdn.berrysauce.me/shared/hoom-banner-modified.png">
 <img src="https://bcdn.berrysauce.me/shared/hoom-ad-modified.png">
 
+<p align="center">
+    <img alt="CodeQL Status" src=https://github.com/berrysauce/hoom/actions/workflows/github-code-scanning/codeql/badge.svg>
+    <img alt="PyPi Publishing Status" src=https://github.com/berrysauce/hoom/actions/workflows/python-publish.yml/badge.svg>
+    <img alt="PyPi Python Versions" src=https://img.shields.io/pypi/pyversions/hoom>
+    <img alt="PyPi Package Downloads" src=https://img.shields.io/pypi/dm/hoom?color=blue>
+</p>
+
 <br>
 
 # 🏡 Hoom
