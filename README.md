@@ -1,6 +1,10 @@
 <img src="https://bcdn.berrysauce.me/shared/hoom-banner-modified.png">
 <img src="https://bcdn.berrysauce.me/shared/hoom-ad-modified.png">
 
+<br>
+
+<h1 align="center">🏡 Hoom</h1>
+<p align="center">Build your own HomeKit Bridge & Accessories with Hoom</p>
 <p align="center">
     <img alt="CodeQL Status" src=https://github.com/berrysauce/hoom/actions/workflows/github-code-scanning/codeql/badge.svg>
     <img alt="PyPi Publishing Status" src=https://github.com/berrysauce/hoom/actions/workflows/python-publish.yml/badge.svg>
@@ -9,9 +13,6 @@
 </p>
 
 <br>
-
-# 🏡 Hoom
-Build your own HomeKit Bridge & Accessories with Hoom
 
 ### ✨ Features
 - [x] HomeKit Bridge
