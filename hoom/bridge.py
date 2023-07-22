@@ -160,6 +160,7 @@ class Hoom():
     async def get_root(self, request: Request):
         return templates.TemplateResponse("connect.html", {
             "request": request,
+            "bridge_name": self.name,
             "code": pin_code,
             "qrcode": xhm_uri,
             "version": version
