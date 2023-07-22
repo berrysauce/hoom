@@ -7,7 +7,12 @@ from pyhap.accessory_driver import AccessoryDriver
 from pyhap.const import (CATEGORY_LIGHTBULB,
                          CATEGORY_SENSOR)
 
-version = "0.1.2"
+
+# read version from pyproject.toml
+with open("./pyproject.toml", "r") as f:
+    for line in f.readlines():
+        if "version" in line:
+            version = line.split("=")[1].strip().replace('"', '')
 
 
 class Hoom():
