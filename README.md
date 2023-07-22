@@ -21,6 +21,8 @@
 - [x] Customizable
 - [x] Easy to use
 
+<br>
+
 ### 📦 Installation
 You can easily install Hoom using pip:
 
@@ -29,6 +31,8 @@ pip install hoom
 ```
 
 > **Note**: Hoom requires Python 3.8 or higher
+
+<br>
 
 ### How to use
 Here's a demo script which shows how easy Hoom is to use:
@@ -52,6 +56,8 @@ hoom.run()
 ```
 
 As you can see, Hoom is very similar to frameworks like FastAPI. No need for complicated classes with lots of methods. Just use the `@hoom.accessory` decorator and you're good to go.
+
+<br>
 
 ### 📣 Credits
 A special thanks goes out to these Python packages/frameworks and their authors:
