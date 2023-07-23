@@ -29,10 +29,6 @@ base36 = "^0.1.1"
 colorama = "^0.4.6"
 
 
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
-
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
