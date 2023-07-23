@@ -30,7 +30,7 @@ colorama = "^0.4.6"
 
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^7.4.0"
 
 
 [build-system]
