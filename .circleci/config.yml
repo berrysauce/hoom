@@ -10,9 +10,6 @@ jobs:
     steps:
       - checkout
 
-      # Set up Python environment
-      - python/set-up-python
-
       # Restore Poetry cache (if any)
       - restore_cache:
           keys:
