@@ -1,12 +1,12 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@1.5.0  # Replace x.y.z with the latest stable version of the Python orb.
+  python: circleci/python@1.5.0
 
 jobs:
   build:
     docker:
-      - image: circleci/python:3.9  # Replace with the Python version you want to use (e.g., 3.6, 3.7, 3.8, 3.9).
+      - image: circleci/python:3.9
     steps:
       - checkout
 
