@@ -1,9 +1,8 @@
 <img src="https://bcdn.berrysauce.me/shared/hoom-banner-modified.png">
-<img src="https://bcdn.berrysauce.me/shared/hoom-ad-modified.png">
 
 <br>
 
-<h1 align="center">🏡 Hoom</h1>
+<h1 align="center">Hoom</h1>
 <p align="center">Build your own HomeKit Bridge & Accessories with Hoom</p>
 <p align="center">
     <img alt="CodeQL Status" src=https://github.com/berrysauce/hoom/actions/workflows/github-code-scanning/codeql/badge.svg>
@@ -14,7 +13,7 @@
 
 <br>
 
-### Features
+## ✨ Features
 - [x] HomeKit Bridge
 - [x] Minimalist Web UI
 - [x] Create custom HomeKit Accessories with function decorators
@@ -23,8 +22,8 @@
 
 <br>
 
-### Installation
-You can easily install Hoom using pip:
+## 📦 Installation
+Hoom is available on [PyPi](https://pypi.org/project/hoom/). You can easily install it using pip:
 
 ```bash
 pip install hoom
@@ -34,18 +33,18 @@ pip install hoom
 
 <br>
 
-### How to use
+## 🚀 Getting started
 Here's a demo script which shows how easy Hoom is to use:
 
 ```python
 from hoom import Hoom
 from hoom.accessory_types import Lightbulb
 
-hoom = Hoom(name="Hoom Bridge")
+hoom = Hoom()
 
 @hoom.accessory("Lamp", Lightbulb)
 def lamp(response: Lightbulb.Response):
-    if response.state:
+    if response.state: # either True or False
         print("Lamp is now on")
     else:
         print("Lamp is now off")
@@ -59,7 +58,7 @@ As you can see, Hoom is very similar to frameworks like FastAPI. No need for com
 
 <br>
 
-### Credits
+## 📣 Credits
 A special thanks goes out to these Python packages/frameworks and their authors:
 
 - [HAP-python](https://github.com/ikalchev/HAP-python) - Hoom wouldn't be possible without this HomeKit Accessory Protocol implementation by [Ivan Kalchev](https://github.com/ikalchev)
