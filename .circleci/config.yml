@@ -10,11 +10,6 @@ jobs:
     steps:
       - checkout
 
-      # Restore Poetry cache (if any)
-      - restore_cache:
-          keys:
-            - v1-poetry-{{ checksum "pyproject.toml" }}
-
       # Install project dependencies
       - run:
           name: Install Poetry
@@ -25,23 +20,12 @@ jobs:
           name: Install dependencies
           command: poetry install
 
-      # Save Poetry cache
-      - save_cache:
-          key: v1-poetry-{{ checksum "pyproject.toml" }}
-          paths:
-            - ~/.cache/pypoetry
-            - ~/.local/share/virtualenvs
-
       # Run tests
       # - run:
       #    name: Run tests
       #    command: poetry run pytest
 
 workflows:
-  version: 2
   build:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: main  # Adjust this branch filter as needed.
+      - build
