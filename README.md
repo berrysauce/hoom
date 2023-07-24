@@ -13,6 +13,10 @@
 
 <br>
 
+> 🚧 **Please note**: Hoom is still under development. It is not recommended at this point, to use Hoom in a production environment.
+
+<br>
+
 ## ✨ Features
 - [x] HomeKit Bridge
 - [x] Minimalist Web UI
