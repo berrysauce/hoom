@@ -1,8 +1,10 @@
 import os
+import uuid
 import logging
 import signal
 import threading
 import colorama
+import datetime
 
 # python-HAP imports
 from pyhap.accessory import Accessory, Bridge
@@ -24,6 +26,7 @@ from fastapi_utils.inferring_router import InferringRouter
 
 
 version = "pre-0.1.2" 
+year = datetime.datetime.now().year
 app = FastAPI(
     title="Hoom",
     version=version,
@@ -77,21 +80,21 @@ class Hoom():
         
     def run(self):       
         print(
-            colorama.Fore.BLUE + f"""
-            HH   HH                           
-            HH   HH  oooo   oooo  mm mm mmmm  
-            HHHHHHH oo  oo oo  oo mmm  mm  mm 
-            HH   HH oo  oo oo  oo mmm  mm  mm 
-            HH   HH  oooo   oooo  mmm  mm  mm
+colorama.Fore.BLUE + f"""
+HH   HH                           
+HH   HH  oooo   oooo  mm mm mmmm  
+HHHHHHH oo  oo oo  oo mmm  mm  mm 
+HH   HH oo  oo oo  oo mmm  mm  mm 
+HH   HH  oooo   oooo  mmm  mm  mm
             
-            ---------------------------------
+---------------------------------
             
-            Version: {version}
-            Copyright 2023 foerstal.com
-            Made possible by HAP-python
+Version: {version}
+Copyright {year} foerstal.com
+Made possible by HAP-python
             
-            ---------------------------------
-            """ + colorama.Style.RESET_ALL
+---------------------------------
+""" + colorama.Style.RESET_ALL
         )
         
         logging.info("Starting Hoom Bridge...")
@@ -118,7 +121,7 @@ class Hoom():
                 server_thread.join()
             else:
                 self.driver.start()
-                print("...... " + colorama.Fore.GREEN + "Hoom Bridge is running. Stop with Ctrl+C." + colorama.Style.RESET_ALL + "\n       Configure at http://localhost:8553\n")
+                print("...... " + colorama.Fore.GREEN + "Hoom Bridge is running. Stop with Ctrl+C." + colorama.Style.RESET_ALL + "\n       Configure at http://localhost:8553 \n")
         except KeyboardInterrupt:
             print("\n...... " + colorama.Fore.RED + "Stopping Hoom Bridge..." + colorama.Style.RESET_ALL)
         
@@ -135,7 +138,7 @@ class Hoom():
         
         # do this here to avoid double initialization
         bridge = Bridge(self.driver, self.name)
-        bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
+        bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number=str(uuid.uuid4()))
         self.driver.add_accessory(accessory=bridge)
         # this as well...
         xhm_uri = Accessory.xhm_uri(self.driver.accessory)
@@ -164,5 +167,6 @@ class Hoom():
             "bridge_name": self.name,
             "code": pin_code,
             "qrcode": xhm_uri,
-            "version": version
+            "version": version,
+            "year": year
         })

@@ -10,16 +10,12 @@
 
 <body>
     <section class="py-4 py-xl-5">
-        <div class="container" style="max-width: 500px;">
+        <div class="container" style="max-width: 500px; margin-top: 10vh;">
             <div class="p-4 p-lg-5">
-                <h1 class="fs-3 text-start" style="font-weight: 600;letter-spacing: -0.5px;margin-bottom: 16px;color: rgb(0,0,0);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-smart-home" style="margin-bottom: 5px;margin-right: 5px;">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M19 8.71l-5.333 -4.148a2.666 2.666 0 0 0 -3.274 0l-5.334 4.148a2.665 2.665 0 0 0 -1.029 2.105v7.2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-7.2c0 -.823 -.38 -1.6 -1.03 -2.105"></path>
-                        <path d="M16 15c-2.21 1.333-5.792 1.333-8 0"></path>
-                    </svg>Hoom</h1>
-                <p style="font-size: 16px;color: rgba(33,37,41,0.5);margin-bottom: 50px;">Welcome to your Hoom Bridge. Scan the code below to add Hoom as a bridge to your HomeKit configuration.</p>
                 <div style="background: rgb(0,0,0);border-radius: 15px;padding: 10px 20px;border: 1px solid rgb(0,0,0);margin-bottom: -1px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
-                    <p class="text-center" style="font-size: 18px;color: rgb(255,255,255);margin-bottom: 0px;font-weight: 500;">{{ bridge_name }}</p>
+                    <p class="text-center" style="font-size: 18px;color: rgb(255,255,255);margin-bottom: 0px;font-weight: 500;">
+                        {{ bridge_name }}
+                    </p>
                 </div>
                 <div style="background: #fbfbfb;border-radius: 15px;padding: 20px;border: 1px solid rgb(237,237,237);margin-bottom: 32px;border-top-right-radius: 0px;border-top-left-radius: 0px;">
                     <div class="row">
@@ -53,7 +49,7 @@
 
                     makeCode();
                 </script>
-                <p style="font-size: 10px;color: rgba(33,37,41,0.5);margin-bottom: 50px;text-align: center;">Version {{ version }}&nbsp; ·&nbsp; Copyright © 2023 Foerstal (foerstal.com)</p>
+                <p style="font-size: 10px;color: rgba(33,37,41,0.5);margin-bottom: 50px;text-align: center;">Version {{ version }}&nbsp; ·&nbsp; Copyright © {{ year }} Foerstal (foerstal.com)</p>
             </div>
         </div>
     </section>
