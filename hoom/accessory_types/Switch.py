@@ -16,7 +16,7 @@ class Switch(Accessory):
 
         serv_switch = self.add_preload_service("Switch")
         self.char_on = serv_switch.configure_char(
-            "On", setter_callback=self.execute_shutdown)
+            "On", setter_callback=self.set_switch)
         
         self.callback_func = None
         
