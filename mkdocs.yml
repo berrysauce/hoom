@@ -2,6 +2,10 @@ site_name: hoom Documentation
 
 theme:
   name: material
+  palette:
+    # scheme: slate # (darkmode)
+    primary: black
+    accent: amber
   highlightjs: true
 
 plugins:
