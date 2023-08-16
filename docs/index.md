@@ -1,5 +1,3 @@
-# hoom Documentation
-
 This is the documentation for hoom 🎉
 
 !!! warning
