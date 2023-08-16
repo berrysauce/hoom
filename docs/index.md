@@ -1,14 +1,14 @@
----
-hide:
-  - navigation
----
-
-# hoom Docs
+# hoom Documentation
 
 This is the documentation for hoom 🎉
 
 !!! warning
     Hoom is still under development. It is not recommended at this point, to use Hoom in a production environment.
+
+
+## What is Hoom?
+
+Hoom is a Python package that allows you to easily build your own HomeKit Bridge & Accessories. It works with and is heavily inspired by [HAP-python](https://github.com/ikalchev/HAP-python) & [FastAPI](https://github.com/tiangolo/fastapi). To make the development of HomeKit compatible bridges as easy as possible, Hoom uses function decorators. This drastically simplifies the process. Hoom also comes with a minimalist web UI, which allows you to control your HomeKit Accessories from any device in your local network.
 
 
 ## ✨ Features
