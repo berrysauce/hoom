@@ -25,10 +25,22 @@ theme:
   icon:
     repo: fontawesome/brands/github
   features:
+    - announce.dismiss
     - navigation.tabs
     - navigation.sections
+    - navigation.path
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
     - content.action.edit
     - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
   highlightjs: true
 
 # Plugins
