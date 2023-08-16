@@ -1,7 +1,10 @@
 site_name: hoom Documentation
+docs_dir: docs
+
 theme:
   name: terminal
   highlightjs: true
+
 plugins:
   - search
   - mkdocstrings:
@@ -10,6 +13,7 @@ plugins:
         python:
           options:
             docstring_style: sphinx
+            
 markdown_extensions:
   - markdown_include.include:
       base_path: .
