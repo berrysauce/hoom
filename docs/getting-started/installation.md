@@ -1,4 +1,4 @@
-# 📦 Installation
+# Installation
 
 Hoom is available on [PyPi](https://pypi.org/project/hoom/). You can easily install it using pip:
 
