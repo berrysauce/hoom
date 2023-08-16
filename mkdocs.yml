@@ -60,7 +60,6 @@ nav:
     - Basics:
       - Bridge: basics/bridge.md
       - Accessories:
-        - basics/accessories.md
         - Lamp: basics/accessories/lamp.md
         - Switch: basics/accessories/switch.md
         - Temperature Sensor: basics/accessories/temperature-sensor.md
