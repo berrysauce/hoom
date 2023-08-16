@@ -24,7 +24,8 @@ As you can see, Hoom is very similar to frameworks like [FastAPI](https://github
 
 Hoom takes over the job of communicating with HomeKit and establishing your function as a HomeKit accessory. You just have to write the code for your accessory.
 
-### Running the script
+
+## Running the script
 
 Start Hoom by running your script, e.g. with:
 
