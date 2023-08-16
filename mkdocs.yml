@@ -16,7 +16,7 @@ copyright: Copyright &copy; 2023 Paul Haedrich
 # Theme configuration
 theme:
   name: material
-  logo: https://raw.githubusercontent.com/berrysauce/hoom/main/assets/logo.png
+  logo: https://raw.githubusercontent.com/berrysauce/hoom/main/docs/logo.png
   palette:
     # scheme: slate # (darkmode)
     primary: black
