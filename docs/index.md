@@ -1,6 +1,6 @@
-# Welcome
+# Welcome to the Hoom Documentation!
 
-This is the documentation for hoom 🎉
+This is the documentation for Hoom 🎉
 
 !!! warning
     Hoom is still under development. It is not recommended at this point, to use Hoom in a production environment.
