@@ -19,6 +19,9 @@ class Lightbulb(Accessory):
             self.saturation = saturation
 
     def __init__(self, *args, **kwargs): 
+        
+        # remove dimable and colorable from kwargs 
+        # so they don't get passed to Accessory with super().__init__()
         try:
             self.dimable = kwargs["dimable"]
             del kwargs["dimable"]  
