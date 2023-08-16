@@ -35,8 +35,10 @@ The `Lightbulb.Response` object contains the following attributes:
 - `on` - A boolean value indicating whether the lightbulb is turned on or off.
 
 If you set `dimable=True` in the decorator, the following attributes are also available:
+
 - `brightness` - An integer value between `0` and `100` indicating the brightness of the lightbulb.
 
 If you set `colorable=True` in the decorator, the following attributes are also available:
+
 - `hue` - An integer value between `0` and `360` indicating the hue of the lightbulb.
 - `saturation` - An integer value between `0` and `100` indicating the saturation of the lightbulb.
