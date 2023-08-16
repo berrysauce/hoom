@@ -1,6 +1,8 @@
 # Lightbulb
 
-The lightbulb accessory type is a simple accessory that can be turned on or off. It returns a `Lightbulb.Response` object which contains the state of the lightbulb, set by HomeKit. Other than the Switch accessory, the lightbulb accessory can also be dimmed and set to a certain hue & saturation.
+The lightbulb accessory type is a simple accessory that can be turned on or off. It returns a `Lightbulb.Response` object which contains the state of the lightbulb, set by HomeKit. 
+
+Other than the Switch accessory, the lightbulb accessory can also be dimmed and set to a certain hue & saturation.
 
 ```python
 from hoom import Hoom
