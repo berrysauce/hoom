@@ -9,8 +9,7 @@ site_description: >-
 # Repository info
 repo_name: berrysauce/hoom
 repo_url: https://github.com/berrysauce/hoom
-edit_uri: /blob/main/docs
-view_uri: /blob/main/docs
+edit_uri: /berrysauce/hoom/blob/main/docs
 
 # Copyright
 copyright: Copyright &copy; 2023 Paul Haedrich
