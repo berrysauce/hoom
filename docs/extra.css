@@ -1,5 +1,11 @@
 /* Homepage */
 
+/*
 body.homepage div.md-sidebar {
+    display: none;
+}
+*/
+
+.bs-sidebar {
     display: none;
 }
