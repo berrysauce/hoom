@@ -1,0 +1,5 @@
+/* Homepage */
+
+body.homepage div.md-sidebar {
+    display: none;
+}

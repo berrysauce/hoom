@@ -28,6 +28,10 @@ theme:
     - navigation.sections
   highlightjs: true
 
+# Extra CSS
+extra_css:
+  - docs/extra.css
+
 # Plugins
 plugins:
   - search
