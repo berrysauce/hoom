@@ -5,10 +5,11 @@
 <h1 align="center">Hoom</h1>
 <p align="center">Build your own HomeKit Bridge & Accessories with Hoom</p>
 <p align="center">
-    <img alt="CodeQL Status" src=https://github.com/berrysauce/hoom/actions/workflows/github-code-scanning/codeql/badge.svg>
-    <img alt="PyPi Publishing Status" src=https://github.com/berrysauce/hoom/actions/workflows/python-publish.yml/badge.svg>
-    <img alt="PyPi Python Versions" src=https://img.shields.io/pypi/pyversions/hoom>
-    <img alt="PyPi Package Downloads" src=https://img.shields.io/pypi/dm/hoom?color=blue>
+    <img alt="CodeQL Status" src=https://github.com/berrysauce/hoom/actions/workflows/github-code-scanning/codeql/badge.svg/>
+    <img alt="Documentation Status" src="https://readthedocs.org/projects/hoom/badge/?version=stable"/>
+    <img alt="PyPi Publishing Status" src=https://github.com/berrysauce/hoom/actions/workflows/python-publish.yml/badge.svg/>
+    <img alt="PyPi Python Versions" src=https://img.shields.io/pypi/pyversions/hoom/>
+    <img alt="PyPi Package Downloads" src=https://img.shields.io/pypi/dm/hoom?color=blue/>
 </p>
 
 <br>
