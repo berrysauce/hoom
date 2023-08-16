@@ -1,5 +1,4 @@
 site_name: hoom Documentation
-docs_dir: docs
 
 theme:
   name: terminal
