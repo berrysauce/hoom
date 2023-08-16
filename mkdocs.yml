@@ -1,7 +1,8 @@
-site_name: hoom Documentation
+site_name: hoom
 
 theme:
   name: material
+  logo: docs/logo.png
   palette:
     # scheme: slate # (darkmode)
     primary: black
