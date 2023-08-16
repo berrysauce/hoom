@@ -1,5 +1,19 @@
+# Site info
 site_name: hoom
+site_url: https://berrysauce.me/hoom
+site_author: Paul Haedrich
+site_description: >-
+  Build your own HomeKit Bridge & Accessories with Hoom. This is 
+  the documentation for the Hoom Python package.
 
+# Repository info
+repo_name: berrysauce/hoom
+repo_url: https://github.com/berrysauce/hoom
+
+# Copyright
+copyright: Copyright &copy; 2023 Paul Haedrich
+
+# Theme configuration
 theme:
   name: material
   logo: docs/logo.png
@@ -7,8 +21,14 @@ theme:
     # scheme: slate # (darkmode)
     primary: black
     accent: amber
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.sections
   highlightjs: true
 
+# Plugins
 plugins:
   - search
   - mkdocstrings:
@@ -17,10 +37,28 @@ plugins:
         python:
           options:
             docstring_style: sphinx
-            
+
+# Markdown extensions
 markdown_extensions:
   - markdown_include.include:
       base_path: .
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+# Navigation
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quickstart: getting-started/quickstart.md
+    - Configuration: getting-started/configuration.md
+    - Examples: getting-started/examples.md
+  - Usage:
+    - Bridge: usage/bridge.md
+    - Accessories: usage/accessories.md
+    - Responses: usage/responses.md
+  - Changelog: 
+    - https://github.com/berrysauce/hoom/releases
+    - How to upgrade: changelog/upgrading.md
+  - Donate: https://github.com/sponsors/berrysauce
