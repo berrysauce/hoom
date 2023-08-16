@@ -16,7 +16,7 @@ copyright: Copyright &copy; 2023 Paul Haedrich
 # Theme configuration
 theme:
   name: material
-  logo: docs/logo.png
+  logo: assets/logo.png
   palette:
     # scheme: slate # (darkmode)
     primary: black
