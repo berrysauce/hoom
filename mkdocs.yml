@@ -58,7 +58,5 @@ nav:
     - Bridge: usage/bridge.md
     - Accessories: usage/accessories.md
     - Responses: usage/responses.md
-  - Changelog: 
-    - https://github.com/berrysauce/hoom/releases
-    - How to upgrade: changelog/upgrading.md
+  - Changelog: <https://github.com/berrysauce/hoom/releases
   - Donate: https://github.com/sponsors/berrysauce
