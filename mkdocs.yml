@@ -1,7 +1,7 @@
 site_name: hoom Documentation
 
 theme:
-  name: terminal
+  name: material
   highlightjs: true
 
 plugins:
