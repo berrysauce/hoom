@@ -7,7 +7,7 @@ readme = "README.md"
 license = "GPL-3.0-only"
 homepage = "https://github.com/berrysauce/hoom"
 repository = "https://github.com/berrysauce/hoom"
-documentation = "https://github.com/berrysauce/hoom"
+documentation = "https://hoom.readthedocs.io/en/latest"
 classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.8",
