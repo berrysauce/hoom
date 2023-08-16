@@ -72,7 +72,7 @@ nav:
     - Basics:
       - Bridge: basics/bridge.md
       - Accessories:
-        - Lamp: basics/accessories/lamp.md
+        - Lightbulb: basics/accessories/lightbulb.md
         - Switch: basics/accessories/switch.md
         - Temperature Sensor: basics/accessories/temperature-sensor.md
       - Responses: basics/responses.md

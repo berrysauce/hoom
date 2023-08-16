@@ -131,7 +131,7 @@ Made possible by HAP-python
             os._exit(0)
     
         
-    def accessory(self, accessory_name: str, accessory_type: classmethod):
+    def accessory(self, accessory_name: str, accessory_type: classmethod, *args, **kwargs):
         global xhm_uri
         global pin_code  
         
@@ -144,7 +144,7 @@ Made possible by HAP-python
         pin_code = str(self.driver.state.pincode, "utf-8")
         
         def decorator(func):
-            accessory_instance = accessory_type(self.driver, accessory_name)
+            accessory_instance = accessory_type(self.driver, accessory_name, *args, **kwargs)
             accessory_instance.callback_func = func
             bridge.add_accessory(accessory_instance)     
         

@@ -1,3 +1,0 @@
-# Lamp
-
-(Coming soon!)
