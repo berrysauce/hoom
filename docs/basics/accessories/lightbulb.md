@@ -14,8 +14,10 @@ hoom = Hoom()
 def lamp(response: Lightbulb.Response):
     if response.on:
         print("Lamp is now on")
+
         # available when dimable=True
         print("Brightness: " + str(response.brightness))
+        
         # available when colorable=True
         print("Hue: " + str(response.hue))
         print("Saturation: " + str(response.saturation))
