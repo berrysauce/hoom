@@ -54,12 +54,15 @@ nav:
     - Getting Started:
       - Installing & Updating: getting-started/installation.md
       - Quickstart: getting-started/quickstart.md
-      - Configuration: getting-started/configuration.md
       - Examples: getting-started/examples.md
-    - Usage:
-      - Bridge: usage/bridge.md
-      - Accessories: usage/accessories.md
-      - Responses: usage/responses.md
+    - Basics:
+      - Bridge: basics/bridge.md
+      - Accessories:
+        - basics/accessories.md
+        - Lamp: basics/accessories/lamp.md
+        - Switch: basics/accessories/switch.md
+        - Temperature Sensor: basics/accessories/temperature-sensor.md
+      - Responses: basics/responses.md
     - Web UI:
       - How to use the Web UI: web/guide.md
       - Hoom API: web/api.md

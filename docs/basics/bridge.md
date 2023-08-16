@@ -1,6 +1,10 @@
-# Configuration
+# Bridge
 
-Hoom has a few configuration options, which can be set while initiakizing the `Hoom` class.
+The Bridge is the main part of Hoom. It is responsible for the communication via the HomeKit Accessory Protocol (HAP). It also handles the creation of Accessories and their Services. The Bridge is resembled by the `Hoom` class.
+
+## How to configure the Bridge
+
+The Bridge has a few configuration options, which can be set while initializing the `Hoom` class.
 
 ```python
 from hoom import Hoom
@@ -15,6 +19,8 @@ hoom = Hoom(
 
 hoom.run()
 ```
+
+## Configuration Options
 
 - **Name**: Set the name of your HomeKit Bridge. This will be displayed in the Apple Home app. Defaults to `Hoom Bridge`.
 - **Server**: Set to `True` if you want to enable the web server. This is required if you want to use the web UI. Hoom is capable of running without the web server. Defaults to `True`.

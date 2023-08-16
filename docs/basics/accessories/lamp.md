@@ -1,3 +1,3 @@
-# Responses
+# Lamp
 
 (Coming soon!)

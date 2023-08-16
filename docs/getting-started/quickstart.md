@@ -26,4 +26,10 @@ Hoom takes over the job of communicating with HomeKit and establishing your func
 
 ### Running the script
 
-Start Hoom by running your script, e.g. with `python3 my-bridge.py`. Hoom will start a web server at http://localhost:8553 by default. You can change this by passing the `host` and `port` argument to the `Hoom` class. When visiting the web server you'll see a small UI with the configuation instructions.
+Start Hoom by running your script, e.g. with:
+
+```bash
+python3 my-bridge.py
+```
+
+Hoom will start a web server at http://localhost:8553 by default. You can change this by passing the `host` and `port` argument to the `Hoom` class. When visiting the web server you'll see a small UI with the configuation instructions.

@@ -1,3 +1,0 @@
-# Accessories
-
-(Coming soon!)
