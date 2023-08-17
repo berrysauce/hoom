@@ -37,3 +37,4 @@ class TemperatureSensor(Accessory):
         if self.callback_func is not None:
             temp = self.callback_func(self.Response(temp=self.char_temp.value)).temp
             self.char_temp.set_value(temp)
+        return
