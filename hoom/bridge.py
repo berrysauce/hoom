@@ -82,24 +82,10 @@ class Hoom():
         bridge = Bridge(self.driver, self.name)
         bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
         
-    def run(self):       
-        print(
-colorama.Fore.BLUE + f"""
-HH   HH                           
-HH   HH  oooo   oooo  mm mm mmmm  
-HHHHHHH oo  oo oo  oo mmm  mm  mm 
-HH   HH oo  oo oo  oo mmm  mm  mm 
-HH   HH  oooo   oooo  mmm  mm  mm
-            
----------------------------------
-            
-Version: {version}
-Copyright {year} foerstal.com
-Made possible by HAP-python
-            
----------------------------------
-""" + colorama.Style.RESET_ALL
-        )
+    def run(self):     
+        print(colorama.Fore.BLUE + f"---------------------------" + colorama.Style.RESET_ALL)  
+        print(colorama.Fore.BLUE + f"        hoom v{version}    " + colorama.Style.RESET_ALL)
+        print(colorama.Fore.BLUE + f"---------------------------" + colorama.Style.RESET_ALL)  
         
         logging.info("Starting Hoom Bridge...")
         signal.signal(signal.SIGTERM, self.driver.signal_handler)

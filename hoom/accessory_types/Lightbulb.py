@@ -41,6 +41,7 @@ class Lightbulb(Accessory):
         except TypeError:
             raise InvalidArgumentError(f"Invalid argument(s) passed to the Accessory class: {kwargs}")
         
+        # default characteristics
         chars = ["On"]
         
         if self.dimmable:
