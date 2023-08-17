@@ -85,6 +85,6 @@ nav:
       - How to keep your Bridge secure: security/guide.md
   - Changelog: https://github.com/berrysauce/hoom/releases
   - Donate: https://github.com/sponsors/berrysauce
-  - Code of Conduct: https://github.com/berrysauce/hoom/blob/main/CODE_OF_CONDUCT.md
-  - Security Policy: https://github.com/berrysauce/hoom/blob/main/SECURITY.md
-  - Legal Disclaimer: https://github.com/berrysauce/hoom/blob/main/DISCLAIMER.md
+  - Code of Conduct: coc.md
+  - Security Policy: security/policy.md
+  - Legal Disclaimer: disclaimer.md
