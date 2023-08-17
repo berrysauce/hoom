@@ -9,7 +9,7 @@ from hoom.accessory_types import Switch
 hoom = Hoom()
 
 @hoom.accessory("Switch", Switch)
-def lamp(response: Switch.Response):
+def switch(response: Switch.Response):
     if response.on: # boolean value
         print("Switch is now on")
     else:

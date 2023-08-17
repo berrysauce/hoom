@@ -10,10 +10,10 @@ from hoom.accessory_types import Lightbulb
 
 hoom = Hoom()
 
-@hoom.accessory("Lamp", Lightbulb, dimable=True, colorable=True)
-def lamp(response: Lightbulb.Response):
+@hoom.accessory("Light", Lightbulb, dimable=True, colorable=True)
+def light(response: Lightbulb.Response):
     if response.on:
-        print("Lamp is now on")
+        print("Light is now on")
 
         # available when dimable=True
         print("Brightness: " + str(response.brightness))
@@ -22,7 +22,7 @@ def lamp(response: Lightbulb.Response):
         print("Hue: " + str(response.hue))
         print("Saturation: " + str(response.saturation))
     else:
-        print("Lamp is now off")
+        print("Light is now off")
         
     return
 
