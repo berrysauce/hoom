@@ -40,8 +40,16 @@ class Lightbulb(Accessory):
             super().__init__(*args, **kwargs)   
         except TypeError:
             raise InvalidArgumentError(f"Invalid argument(s) passed to the Accessory class: {kwargs}")
+        
+        chars = ["On"]
+        
+        if self.dimmable:
+            chars.append("Brightness")
+        if self.colorable:
+            chars.append("Hue")
+            chars.append("Saturation")
 
-        serv_light = self.add_preload_service("Lightbulb", chars=["On", "Brightness", "Hue", "Saturation"])
+        serv_light = self.add_preload_service("Lightbulb", chars=chars)
         
         self.char_on = serv_light.configure_char("On", setter_callback=self.set_bulb)
         
