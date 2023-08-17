@@ -83,9 +83,9 @@ class Hoom():
         bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
         
     def run(self):     
-        print(colorama.Fore.BLUE + f"---------------------------" + colorama.Style.RESET_ALL)  
+        print(colorama.Fore.BLUE + f"\n---------------------------" + colorama.Style.RESET_ALL)  
         print(colorama.Fore.BLUE + f"        hoom v{version}    " + colorama.Style.RESET_ALL)
-        print(colorama.Fore.BLUE + f"---------------------------" + colorama.Style.RESET_ALL)  
+        print(colorama.Fore.BLUE + f"---------------------------\n" + colorama.Style.RESET_ALL)  
         
         logging.info("Starting Hoom Bridge...")
         signal.signal(signal.SIGTERM, self.driver.signal_handler)
@@ -133,8 +133,6 @@ class Hoom():
         # this as well...
         xhm_uri = Accessory.xhm_uri(self.driver.accessory)
         pin_code = str(self.driver.state.pincode, "utf-8")
-        
-        logging.info(colorama.Fore.BLUE + "Ran accessory function" + colorama.Style.RESET_ALL)
         
         def decorator(func):
             accessory_instance = accessory_type(self.driver, accessory_name, *args, **kwargs)
