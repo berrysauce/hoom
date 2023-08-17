@@ -1,9 +1,11 @@
 from pyhap.accessory import Accessory
 from pyhap.const import CATEGORY_LIGHTBULB
 
+from hoom.exceptions import InvalidArgumentError
+
 class Lightbulb(Accessory):
     category = CATEGORY_LIGHTBULB
-    dimable: bool = False
+    dimmable: bool = False
     colorable: bool = False
     
     class Response():
@@ -20,11 +22,11 @@ class Lightbulb(Accessory):
 
     def __init__(self, *args, **kwargs): 
         
-        # remove dimable and colorable from kwargs 
+        # remove dimmable and colorable from kwargs 
         # so they don't get passed to Accessory with super().__init__()
         try:
-            self.dimable = kwargs["dimable"]
-            del kwargs["dimable"]  
+            self.dimmable = kwargs["dimmable"]
+            del kwargs["dimmable"]  
         except KeyError:
             pass
         
@@ -34,13 +36,16 @@ class Lightbulb(Accessory):
         except KeyError:
             pass
         
-        super().__init__(*args, **kwargs)   
+        try:
+            super().__init__(*args, **kwargs)   
+        except TypeError:
+            raise InvalidArgumentError(f"Invalid argument(s) passed to the Accessory class: {kwargs}")
 
         serv_light = self.add_preload_service("Lightbulb", chars=["On", "Brightness", "Hue", "Saturation"])
         
         self.char_on = serv_light.configure_char("On", setter_callback=self.set_bulb)
         
-        if self.dimable:
+        if self.dimmable:
             self.char_brightness = serv_light.configure_char("Brightness", setter_callback=self.set_bulb)
         if self.colorable:
             self.char_hue = serv_light.configure_char("Hue", setter_callback=self.set_bulb)
@@ -54,7 +59,7 @@ class Lightbulb(Accessory):
             hue = None
             saturation = None
             
-            if self.dimable:
+            if self.dimmable:
                 brightness = self.char_brightness.value
             if self.colorable:
                 hue = self.char_hue.value

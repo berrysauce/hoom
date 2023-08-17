@@ -55,6 +55,7 @@ with open("./pyproject.toml", "r") as f:
             version = line.split("=")[1].strip().replace('"', '')
 
 # global variables
+bridge = None
 xhm_uri = None
 pin_code = None
 
@@ -67,6 +68,7 @@ pin_code = None
 @cbv(router)
 class Hoom():
     def __init__(self, name: str = "Hoom Bridge", server: bool = True, host: str = "localhost", port: int = 8553, interval: int = 3) -> None:
+        global bridge
         global refresh_interval # is this possible in a different way else?
         
         self.name = name # bridge name
@@ -75,7 +77,10 @@ class Hoom():
         self.port = port # server port
         self.interval = interval # refresh interval for accessories that support it (in seconds)
         
+        # do this here to avoid double initialization
         self.driver = AccessoryDriver(port=51826, persist_file="hoom_bridge.state")
+        bridge = Bridge(self.driver, self.name)
+        bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
         
     def run(self):       
         print(
@@ -133,20 +138,22 @@ Made possible by HAP-python
         
     def accessory(self, accessory_name: str, accessory_type: classmethod, *args, **kwargs):
         global xhm_uri
-        global pin_code  
+        global pin_code
+        global bridge
         
         # do this here to avoid double initialization
-        bridge = Bridge(self.driver, self.name)
-        bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
         self.driver.add_accessory(accessory=bridge)
+        
         # this as well...
         xhm_uri = Accessory.xhm_uri(self.driver.accessory)
         pin_code = str(self.driver.state.pincode, "utf-8")
         
+        logging.info(colorama.Fore.BLUE + "Ran accessory function" + colorama.Style.RESET_ALL)
+        
         def decorator(func):
             accessory_instance = accessory_type(self.driver, accessory_name, *args, **kwargs)
             accessory_instance.callback_func = func
-            bridge.add_accessory(accessory_instance)     
+            bridge.add_accessory(accessory_instance)
         
             logging.info(colorama.Fore.BLUE + f"Initialized accessory '{accessory_name}'" + colorama.Style.RESET_ALL)   
             return func

@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "hoom"
-version = "0.1.5"
+version = "0.1.6"
 description = "Build your own HomeKit Bridge & Accessories with Hoom"
 authors = ["Paul Haedrich <hey@foerstal.com>"]
 readme = "README.md"
 license = "GPL-3.0-only"
-homepage = "https://github.com/berrysauce/hoom"
+homepage = "https://berrysauce.me/hoom"
 repository = "https://github.com/berrysauce/hoom"
 documentation = "https://berrysauce.me/hoom"
 classifiers = [
