@@ -104,7 +104,7 @@ class Hoom():
                 bridge_thread.start()
                 server_thread.start()
             
-                print("...... " + colorama.Fore.GREEN + "Hoom Bridge is running. Stop with Ctrl+C." + colorama.Style.RESET_ALL + "\n       Configure at http://localhost:8553")
+                print("...... " + colorama.Fore.GREEN + "Hoom Bridge is running. Stop with Ctrl+C." + "\n       Configure at http://localhost:8553" + colorama.Style.RESET_ALL)
             
                 # join threads
                 bridge_thread.join()

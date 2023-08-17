@@ -1,6 +1,8 @@
 from pyhap.accessory import Accessory
 from pyhap.const import CATEGORY_SWITCH
 
+from hoom.exceptions import InvalidArgumentError
+
 class Switch(Accessory):
     category = CATEGORY_SWITCH
     
@@ -11,7 +13,10 @@ class Switch(Accessory):
             self.on = on
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        try:
+            super().__init__(*args, **kwargs)   
+        except TypeError:
+            raise InvalidArgumentError(f"Invalid argument(s) passed to the Accessory class: {kwargs}")
 
         serv_switch = self.add_preload_service("Switch")
         
