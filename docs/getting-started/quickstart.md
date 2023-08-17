@@ -4,17 +4,17 @@ Here's a little script which shows how easy Hoom is to use:
 
 ```python
 from hoom import Hoom
-from hoom.accessory_types import Lightbulb
+from hoom.accessory_types import Switch
 
 hoom = Hoom()
 
-@hoom.accessory("Lamp", Lightbulb)
-def lamp(response: Lightbulb.Response):
-    if response.state: # either True or False
-        print("Lamp is now on")
+@hoom.accessory("Switch", Switch)
+def switch(response: Switch.Response):
+    if response.on: # boolean value
+        print("Switch is now on")
     else:
-        print("Lamp is now off")
-        
+        print("Switch is now off")
+
     return
 
 hoom.run()
