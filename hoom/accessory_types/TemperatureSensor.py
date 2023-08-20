@@ -1,8 +1,6 @@
 from pyhap.accessory import Accessory
 from pyhap.const import CATEGORY_SENSOR
 
-import time
-
 from hoom.exceptions import InvalidArgumentError
 
 class TemperatureSensor(Accessory): 
