@@ -6,8 +6,8 @@
 <p align="center">Build your own HomeKit Bridge & Accessories with Hoom</p>
 <p align="center">
     <img alt="CodeQL Status" src="https://github.com/berrysauce/hoom/actions/workflows/github-code-scanning/codeql/badge.svg"/>
-    <img alt="Documentation Status" src="https://github.com/berrysauce/hoom/actions/workflows/docs.yml/badge.svg"/>
     <img alt="PyPi Publishing Status" src="https://github.com/berrysauce/hoom/actions/workflows/python-publish.yml/badge.svg"/>
+    <img alt="Documentation Status" src="https://github.com/berrysauce/hoom/actions/workflows/docs.yml/badge.svg"/>
     <img alt="PyPi Python Versions" src="https://img.shields.io/pypi/pyversions/hoom"/>
     <img alt="PyPi Package Downloads" src="https://img.shields.io/pypi/dm/hoom?color=blue"/>
 </p>
@@ -68,4 +68,7 @@ A special thanks goes out to these Python packages/frameworks and their authors:
 
 - [HAP-python](https://github.com/ikalchev/HAP-python) - Hoom wouldn't be possible without this HomeKit Accessory Protocol implementation by [Ivan Kalchev](https://github.com/ikalchev)
 - [FastAPI](https://github.com/tiangolo/fastapi) - Hoom uses FastAPI by [Sebastián Ramírez](https://github.com/tiangolo) for its web server & UI and is heavily inspired by it
+
+A special thanks also goes out to:
+
 - [Tabler Icons](https://tabler-icons.io/) - The icon for Hoom is from Tabler Icons

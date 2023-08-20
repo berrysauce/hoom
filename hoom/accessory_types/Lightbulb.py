@@ -5,8 +5,6 @@ from hoom.exceptions import InvalidArgumentError
 
 class Lightbulb(Accessory):
     category = CATEGORY_LIGHTBULB
-    dimmable: bool = False
-    colorable: bool = False
     
     class Response():
         on: bool
@@ -20,20 +18,9 @@ class Lightbulb(Accessory):
             self.hue = hue
             self.saturation = saturation
 
-    def __init__(self, *args, **kwargs): 
-        # remove dimmable and colorable from kwargs 
-        # so they don't get passed to Accessory with super().__init__()
-        try:
-            self.dimmable = kwargs["dimmable"]
-            del kwargs["dimmable"]  
-        except KeyError:
-            pass
-        
-        try:
-            self.colorable = kwargs["colorable"]    
-            del kwargs["colorable"]
-        except KeyError:
-            pass
+    def __init__(self, *args, dimmable: bool = False, colorable: bool = False, **kwargs): 
+        self.dimmable = dimmable
+        self.colorable = colorable
         
         try:
             super().__init__(*args, **kwargs)   

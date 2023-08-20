@@ -18,6 +18,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 
+from .accessory_types import *
+
 
 # ---------------------------------
 # CONFIGURATION
@@ -58,6 +60,26 @@ with open("./pyproject.toml", "r") as f:
 bridge = None
 xhm_uri = None
 pin_code = None
+
+
+# ---------------------------------
+# MAIN FUCTIONS
+# ---------------------------------
+
+
+def init_accessory(driver: AccessoryDriver):
+    global xhm_uri
+    global pin_code
+    global bridge
+    
+    # do this here to avoid double initialization
+    driver.add_accessory(accessory=bridge)
+    
+    # this as well...
+    xhm_uri = Accessory.xhm_uri(driver.accessory)
+    pin_code = str(driver.state.pincode, "utf-8")
+    
+    return
 
             
 # ---------------------------------
@@ -143,6 +165,75 @@ class Hoom():
             return func
 
         return decorator
+    
+    def lightbulb(self, accessory_name: str, dimmable: bool = False, colorable: bool = False, *args, **kwargs):
+        """
+        Creates a Lightbulb accessory from the given function.
+
+        Args:
+            accessory_name (str): Name for your accessory
+            dimmable (bool, optional): Defines whether the lightbulb is dimmable (Default: False)
+            colorable (bool, optional): Defines whether the lightbulb is colorable (Default: False)
+        """
+        
+        # initialize accessory
+        init_accessory(self.driver)
+        
+        def decorator(func):
+            accessory_instance = Lightbulb(self.driver, accessory_name, *args, dimmable=dimmable, colorable=colorable, **kwargs)
+            accessory_instance.callback_func = func
+            bridge.add_accessory(accessory_instance)
+        
+            logging.info(colorama.Fore.BLUE + f"Initialized accessory '{accessory_name}'" + colorama.Style.RESET_ALL)   
+            return func
+
+        return decorator
+    
+    
+    def switch(self, accessory_name: str, *args, **kwargs):
+        """
+        Creates a Switch accessory from the given function.
+
+        Args:
+            accessory_name (str): Name for your accessory
+        """
+        
+        # initialize accessory
+        init_accessory(self.driver)
+        
+        def decorator(func):
+            accessory_instance = Switch(self.driver, accessory_name, *args, **kwargs)
+            accessory_instance.callback_func = func
+            bridge.add_accessory(accessory_instance)
+        
+            logging.info(colorama.Fore.BLUE + f"Initialized accessory '{accessory_name}'" + colorama.Style.RESET_ALL)   
+            return func
+
+        return decorator
+    
+    
+    def temperature_sensor(self, accessory_name: str, *args, interval: int = 3, **kwargs):
+        """
+        Creates a Temperature Sensor accessory from the given function.
+
+        Args:
+            accessory_name (str): Name for your accessory
+            interval (int): Refresh interval in seconds (Default: 3)
+        """
+        
+        # initialize accessory
+        init_accessory(self.driver)
+        
+        def decorator(func):
+            accessory_instance = TemperatureSensor(self.driver, accessory_name, *args, interval=interval, **kwargs)
+            accessory_instance.callback_func = func
+            bridge.add_accessory(accessory_instance)
+        
+            logging.info(colorama.Fore.BLUE + f"Initialized accessory '{accessory_name}'" + colorama.Style.RESET_ALL)   
+            return func
+
+        return decorator
+    
     
     
     # ---------------------------------
