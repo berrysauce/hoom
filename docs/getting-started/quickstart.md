@@ -8,19 +8,19 @@ from hoom.accessory_types import Switch
 
 hoom = Hoom()
 
-@hoom.accessory("Switch", Switch)
+@hoom.switch("Switch ")
 def switch(response: Switch.Response):
-    if response.on: # boolean value
+    if response.on:
         print("Switch is now on")
     else:
         print("Switch is now off")
-
+        
     return
 
 hoom.run()
 ```
 
-As you can see, Hoom is very similar to frameworks like [FastAPI](https://github.com/tiangolo/fastapi). No need for complicated classes with lots of methods. Just use the `@hoom.accessory` decorator and you're good to go.
+As you can see, Hoom is very similar to frameworks like [FastAPI](https://github.com/tiangolo/fastapi). No need for complicated classes with lots of methods. Just use the `@hoom.<<accessory>>` decorator and you're good to go.
 
 Hoom takes over the job of communicating with HomeKit and establishing your function as a HomeKit accessory. You just have to write the code for your accessory.
 

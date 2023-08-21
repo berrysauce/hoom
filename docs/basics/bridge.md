@@ -13,8 +13,7 @@ hoom = Hoom(
     name: "My HomeKit Bridge",
     server: True,
     host: "localhost",
-    port: 8553,
-    interval: 3
+    port: 8553
 )
 
 hoom.run()
@@ -29,4 +28,3 @@ hoom.run()
 - **Server**: Set to `True` if you want to enable the web server. This is required if you want to use the web UI. Hoom is capable of running without the web server. Defaults to `True`.
 - **Host**: Set the host of the web server. Defaults to `localhost`.
 - **Port**: Set the port of the web server. Defaults to `8553`.
-- **Interval**: Set the interval in seconds, in which Hoom will check for changes in your accessories. Defaults to `3`.

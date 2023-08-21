@@ -117,6 +117,9 @@ class Hoom():
     def run(self):
         """
         Starts the Hoom Bridge.
+        
+        Args:
+            None
         """
              
         print(colorama.Fore.BLUE + f"\n---------------------------" + colorama.Style.RESET_ALL)  

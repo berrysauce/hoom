@@ -10,26 +10,22 @@ from hoom.accessory_types import Lightbulb
 
 hoom = Hoom()
 
-@hoom.accessory("Light", Lightbulb, dimable=True, colorable=True)
-def light(response: Lightbulb.Response):
+@hoom.lightbulb("Advanced Light", dimmable=True, colorable=True)
+def advanced_light(response: Lightbulb.Response):
     if response.on:
-        print("Light is now on")
-
-        # available when dimable=True
+        print("Lamp is now on")
         print("Brightness: " + str(response.brightness))
-        
-        # available when colorable=True
         print("Hue: " + str(response.hue))
         print("Saturation: " + str(response.saturation))
     else:
-        print("Light is now off")
+        print("Lamp is now off")
         
     return
 
 hoom.run()
 ```
 
-As with all other accessories, you can define your own logic on how to turn on or off the lightbulb. 
+As with all other accessories, you can define your own logic on what happens, when you turn on or off the lightbulb. 
 
 
 ## `Lightbulb.Response`

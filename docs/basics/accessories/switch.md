@@ -8,9 +8,9 @@ from hoom.accessory_types import Switch
 
 hoom = Hoom()
 
-@hoom.accessory("Switch", Switch)
+@hoom.switch("Switch ")
 def switch(response: Switch.Response):
-    if response.on: # boolean value
+    if response.on:
         print("Switch is now on")
     else:
         print("Switch is now off")
@@ -20,7 +20,7 @@ def switch(response: Switch.Response):
 hoom.run()
 ```
 
-As with all other accessories, you can define your own logic on how to turn on or off the switch. 
+As with all other accessories, you can define your own logic on what happens, when you turn on or off the switch. 
 
 
 ## `Switch.Response`
