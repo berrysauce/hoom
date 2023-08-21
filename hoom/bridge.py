@@ -26,7 +26,19 @@ from .accessory_types import *
 # ---------------------------------
 
 
-version = "pre-0.1.2" 
+# configure logging
+logging.basicConfig(level=logging.INFO, format="[Hoom] %(message)s")
+
+try:
+    # read version from pyproject.toml
+    with open("./pyproject.toml", "r") as f:
+        for line in f.readlines():
+            if "version" in line:
+                version = line.split("=")[1].strip().replace('"', '')
+except Exception as e:
+    logging.error(f"Could not read version from pyproject.toml: {e}")
+    version = "0.0.0"
+    
 year = datetime.datetime.now().year
 app = FastAPI(
     title="Hoom",
@@ -41,20 +53,11 @@ templates = Jinja2Templates(directory="hoom/pages")
 # mount static assets for web UI
 app.mount("/assets", StaticFiles(directory="hoom/pages/assets"), name="assets")
 
-# configure logging
-logging.basicConfig(level=logging.INFO, format="[Hoom] %(message)s")
-
 # disable standard uvicorn logging
 uvicorn_error = logging.getLogger("uvicorn.error")
 uvicorn_error.disabled = True
 uvicorn_access = logging.getLogger("uvicorn.access")
 uvicorn_access.disabled = True
-
-# read version from pyproject.toml
-with open("./pyproject.toml", "r") as f:
-    for line in f.readlines():
-        if "version" in line:
-            version = line.split("=")[1].strip().replace('"', '')
 
 # global variables
 bridge = None
