@@ -2,7 +2,7 @@
 
 The `TemperatureSensor` accessory type is an accessory, that provides data to HomeKit, rather than receive it. It returns a `TemperatureSensor.Response` object which contains the previous set temperature. 
 
-Since the `TemperatureSensor` accessory supplies data, you can optionally set an interval for the polling rate of the accessory. This can be helpful if you receive data from an external source, like an API, and you're required to comply with rate limits.
+Since the `TemperatureSensor` accessory supplies data, you can optionally set an interval for the polling rate of the accessory in seconds. This can be especially helpful if you receive data from an external source, like an API, and you're required to comply with rate limits.
 
 ```python
 from hoom import Hoom

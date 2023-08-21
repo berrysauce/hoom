@@ -49,7 +49,7 @@ hoom = Hoom()
 
 @hoom.switch("Switch ")
 def switch(response: Switch.Response):
-    if response.on:
+    if response.on: # boolean value
         print("Switch is now on")
     else:
         print("Switch is now off")

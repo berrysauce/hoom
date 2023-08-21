@@ -1,9 +1,9 @@
 # Responses
 
-Responses are a way to receive and send data to your Hoom Bridge in a standardised way.
+Responses are a way to receive and send data to and from your Hoom Bridge in a standardised way.
 
 
-## How to use responses
+## How to use Responses
 
 You can receive data by defining a function with a response as an argument. The response will be passed to the function when the accessory is triggered.
 
@@ -12,6 +12,8 @@ You can receive data by defining a function with a response as an argument. The 
 def light(response: Lightbulb.Response):
     print(response.on) # boolean value
     ...
+
+    return
 ```
 
 In this case, we've set the `response` argument of the `light` function to be of the type `Lightbulb.Response`. This means that the `response` object will have the attributes of the `Lightbulb.Response` object, wich are passed on everytime the accessory is triggered, e.g. when it's turned on or off.
@@ -35,4 +37,4 @@ In this case, we're setting the `temp` attribute of the `TemperatureSensor.Respo
 
 ## Response types & attributes
 
-You can learn more about the individual response types in the [accessories section](/docs/basics/accessories/) of these docs.
+You can learn more about the individual response types in the "Accessories" section of these docs.
