@@ -61,6 +61,8 @@ hoom.run()
 
 As you can see, Hoom is very similar to frameworks like FastAPI. No need for complicated classes with lots of methods. Just use the `@hoom.<<accessory>>` decorator and you're good to go.
 
+If you want to know how to create other accessories, [take a look at the documentation](https://berrysauce.me/hoom).
+
 <br>
 
 ## 📣 Credits
