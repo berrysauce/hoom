@@ -111,7 +111,7 @@ class Hoom():
         # do this here to avoid double initialization
         self.driver = AccessoryDriver(port=51826, persist_file="hoom_bridge.state")
         bridge = Bridge(self.driver, self.name)
-        bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
+        bridge.set_info_service(firmware_revision=version, manufacturer="Hoom", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
         
         
     def run(self):
