@@ -89,7 +89,17 @@ def init_accessory(driver: AccessoryDriver):
 
 @cbv(router)
 class Hoom():
-    def __init__(self, name: str = "Hoom Bridge", server: bool = True, host: str = "localhost", port: int = 8553, interval: int = 3) -> None:
+    def __init__(self, name: str = "Hoom Bridge", server: bool = True, host: str = "localhost", port: int = 8553) -> None:
+        """
+        Initializes the Hoom Bridge.
+
+        Args:
+            name (str, optional): Name for your Bride, displayed in the Apple Home app (Default: "Hoom Bridge")
+            server (bool, optional): Defines whether the web server should be started (Default: True)
+            host (str, optional): Defines the host for the web server (Default: "localhost")
+            port (int, optional): Defines the port for the web server (Default: 8553)
+        """
+        
         global bridge
         global refresh_interval # is this possible in a different way else?
         
@@ -97,14 +107,18 @@ class Hoom():
         self.server = server # run FastAPI server?
         self.host = host # server host
         self.port = port # server port
-        self.interval = interval # refresh interval for accessories that support it (in seconds)
         
         # do this here to avoid double initialization
         self.driver = AccessoryDriver(port=51826, persist_file="hoom_bridge.state")
         bridge = Bridge(self.driver, self.name)
         bridge.set_info_service(firmware_revision=version, manufacturer="Foerstal", model="Hoom Bridge", serial_number="0000-0000-0000-0001")
         
-    def run(self):     
+        
+    def run(self):
+        """
+        Starts the Hoom Bridge.
+        """
+             
         print(colorama.Fore.BLUE + f"\n---------------------------" + colorama.Style.RESET_ALL)  
         print(colorama.Fore.BLUE + f"        hoom v{version}    " + colorama.Style.RESET_ALL)
         print(colorama.Fore.BLUE + f"---------------------------\n" + colorama.Style.RESET_ALL)  
@@ -143,28 +157,11 @@ class Hoom():
             # exit process
             os._exit(0)
     
-        
-    def accessory(self, accessory_name: str, accessory_type: classmethod, *args, **kwargs):
-        global xhm_uri
-        global pin_code
-        global bridge
-        
-        # do this here to avoid double initialization
-        self.driver.add_accessory(accessory=bridge)
-        
-        # this as well...
-        xhm_uri = Accessory.xhm_uri(self.driver.accessory)
-        pin_code = str(self.driver.state.pincode, "utf-8")
-        
-        def decorator(func):
-            accessory_instance = accessory_type(self.driver, accessory_name, *args, **kwargs)
-            accessory_instance.callback_func = func
-            bridge.add_accessory(accessory_instance)
-        
-            logging.info(colorama.Fore.BLUE + f"Initialized accessory '{accessory_name}'" + colorama.Style.RESET_ALL)   
-            return func
-
-        return decorator
+    
+    # ---------------------------------
+    # ACCESSORY DECORATORS
+    # ---------------------------------
+    
     
     def lightbulb(self, accessory_name: str, dimmable: bool = False, colorable: bool = False, *args, **kwargs):
         """
@@ -233,7 +230,6 @@ class Hoom():
             return func
 
         return decorator
-    
     
     
     # ---------------------------------
