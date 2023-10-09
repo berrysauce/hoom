@@ -14,7 +14,8 @@
 
 <br>
 
-> 🚧 **Please note**: Hoom is still under development. It is not recommended at this point, to use Hoom in a production environment.
+> [!WARNING]  
+> Hoom is still under development. It is not recommended at this point, to use Hoom in a production environment.
 
 <br>
 
@@ -34,7 +35,8 @@ Hoom is available on [PyPi](https://pypi.org/project/hoom/). You can easily inst
 pip install hoom
 ```
 
-> **Note**: Hoom requires Python 3.8 or higher
+> [!NOTE]  
+> Hoom requires Python 3.8 or higher
 
 <br>
 
